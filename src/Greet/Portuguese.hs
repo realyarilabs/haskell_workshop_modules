@@ -1,4 +1,4 @@
 module Greet.Portuguese where
 
-greet :: String -> String
-greet name = "Olá " ++ name
+greet :: String
+greet = "Olá Mundo"
