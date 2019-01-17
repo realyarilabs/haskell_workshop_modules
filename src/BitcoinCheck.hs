@@ -43,18 +43,18 @@ validityCheck encoded = do
   when (not $ checksumValid address) $ Left "Invalid checksum"
  
 -- Run one validity check and display results.
-validate :: String -> IO ()
+validate :: String -> String
 validate encodedAddress = do
   let result = either show (const "Valid") $ validityCheck encodedAddress
-  putStrLn $ show encodedAddress ++ " -> " ++ result
+  show encodedAddress ++ " -> " ++ result
  
 -- Run some validity check tests.
-main :: IO ()
-main  = do
-  validate "1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i"     -- VALID
-  validate "1Q1pE5vPGEEMqRcVRMbtBK842Y6Pzo6nK9"     -- VALID
-  validate "1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62X"     -- checksum changed, original data.
-  validate "1ANNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i"     -- data changed, original checksum.
-  validate "1A Na15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i"     -- invalid chars
-  validate "1ANa55215ZQXAZUgFiqJ2i7Z2DPU2J6hW62i"   -- too long
-  validate "i55j"                                   -- too short 
+-- main :: IO ()
+-- main  = do
+--   validate "1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i"     -- VALID
+--   validate "1Q1pE5vPGEEMqRcVRMbtBK842Y6Pzo6nK9"     -- VALID
+--   validate "1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62X"     -- checksum changed, original data.
+--   validate "1ANNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i"     -- data changed, original checksum.
+--   validate "1A Na15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i"     -- invalid chars
+--   validate "1ANa55215ZQXAZUgFiqJ2i7Z2DPU2J6hW62i"   -- too long
+--   validate "i55j"                                   -- too short 
