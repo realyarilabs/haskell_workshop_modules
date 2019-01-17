@@ -1,6 +1,9 @@
 module Lib (someFunc) where
 
-import HelloWorld
+import InteractLine
 
 someFunc :: IO ()
-someFunc = putStrLn greet
+someFunc = interactLine greet
+
+greet :: String -> String
+greet = undefined
