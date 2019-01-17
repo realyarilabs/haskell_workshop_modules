@@ -48,7 +48,7 @@ validate encodedAddress = do
   let result = either show (const "Valid") $ validityCheck encodedAddress
   putStrLn $ show encodedAddress ++ " -> " ++ result
  
-Run some validity check tests.
+-- Run some validity check tests.
 main :: IO ()
 main  = do
   validate "1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i"     -- VALID
