@@ -8,7 +8,6 @@ import InteractLine
 someFunc :: IO ()
 someFunc = interactLine greet
 
+-- TODO
 greet :: String -> String
-greet "pt" = undefined
-greet "en" = undefined
-greet _ = undefined
+greet = undefined
